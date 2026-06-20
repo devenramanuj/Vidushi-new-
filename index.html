@@ -557,8 +557,18 @@
             }
 
             getVidushiVideoForEmotion(emotion) {
-                const map = { happy: 'smiling', sad: 'thinking', angry: 'angry', excited: 'talking', grateful: 'smiling', calm: 'silent', neutral: 'silent' };
-                return map[emotion] || 'silent';
+                // talking.mp4 is DEFAULT for all speaking
+                // special videos only for specific emotions
+                const map = { 
+                    angry: 'angry',      // angry.mp4
+                    sad: 'thinking',     // thinking.mp4 (no sad video)
+                    happy: 'talking',    // talking.mp4
+                    excited: 'talking',  // talking.mp4
+                    grateful: 'talking', // talking.mp4
+                    calm: 'talking',     // talking.mp4
+                    neutral: 'talking'   // talking.mp4
+                };
+                return map[emotion] || 'talking';
             }
 
             getEmotionIcon(emotion) {
